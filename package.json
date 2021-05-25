@@ -1,0 +1,14 @@
+{
+  "name": "memory-allocation",
+  "version": "1.0.0",
+  "description": "memory allocation using segmentation",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^13.0.0"
+  }
+}
