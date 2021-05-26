@@ -1,2 +1,23 @@
+        <!-- <script src="../js/index.js"></script>      CANNOT FIND INDEX.JS !!!!     -->
+        <script>
+            const electron = require("electron");
+            const {ipcRenderer} = electron;
+            
+            // get the memory size and holes number
+            const mainForm = document.querySelector('#main_form');
+            mainForm.addEventListener('submit', (e)=>{
+                e.preventDefault();
+                const memorySize = document.querySelector('#memory_size').value;
+                const holesNumber = document.querySelector('#holes_number').value;
+                let memoryHoles = {memorySize, holesNumber};
+                ipcRenderer.send('memory_holes', memoryHoles);
+            });
+
+            // view the data on the frontend
+            ipcRenderer.on('memory_holes', (e,memoryHoles)=>{
+                const p = document.querySelector('p');
+                p.textContent = `Memory size = ${memoryHoles['memorySize']}, holes number = ${memoryHoles['holesNumber']}`;
+            });
+        </script>
     </body>
 </html>
