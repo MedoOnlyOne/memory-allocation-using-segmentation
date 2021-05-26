@@ -9,15 +9,22 @@
                 e.preventDefault();
                 const memorySize = document.querySelector('#memory_size').value;
                 const holesNumber = document.querySelector('#holes_number').value;
-                let memoryHoles = {memorySize, holesNumber};
-                ipcRenderer.send('memory_holes', memoryHoles);
+                
+                // USELESS
+                // let memoryHoles = {memorySize, holesNumber};
+                // ipcRenderer.send('memory_holes', memoryHoles);
+
+                const p = document.querySelector('p');
+                p.textContent = `Memory size = ${memorySize}, holes number = ${holesNumber}`;                
             });
 
-            // view the data on the frontend
-            ipcRenderer.on('memory_holes', (e,memoryHoles)=>{
-                const p = document.querySelector('p');
-                p.textContent = `Memory size = ${memoryHoles['memorySize']}, holes number = ${memoryHoles['holesNumber']}`;
-            });
+            
+            // view the data on the frontend USELESS
+
+            // ipcRenderer.on('memory_holes', (e,memoryHoles)=>{
+            //     const p = document.querySelector('p');
+            //     p.textContent = `Memory size = ${memoryHoles['memorySize']}, holes number = ${memoryHoles['holesNumber']}`;
+            // });
         </script>
     </body>
 </html>

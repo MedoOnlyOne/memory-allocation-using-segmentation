@@ -36,7 +36,9 @@ app.on('ready', ()=>{
     });
 });
 
-// Send data back to frontend
-ipcMain.on('memory_holes', (e, memoryHoles)=>{
-    mainWindow.webContents.send('memory_holes', memoryHoles);
-});
+
+// Send data back to frontend  USELESS
+
+// ipcMain.on('memory_holes', (e, memoryHoles)=>{
+//     mainWindow.webContents.send('memory_holes', memoryHoles);
+// });
