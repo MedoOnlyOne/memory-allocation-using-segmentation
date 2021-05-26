@@ -2,29 +2,43 @@
         <script>
             const electron = require("electron");
             const {ipcRenderer} = electron;
+
+            let holesNumber, memorySize;
+            let holes = {}; // array of objects each object has a base and size
             
             // get the memory size and holes number
             const mainForm = document.querySelector('#main_form');
             mainForm.addEventListener('submit', (e)=>{
                 e.preventDefault();
-                const memorySize = document.querySelector('#memory_size').value;
-                const holesNumber = document.querySelector('#holes_number').value;
-                
-                // USELESS
-                // let memoryHoles = {memorySize, holesNumber};
-                // ipcRenderer.send('memory_holes', memoryHoles);
+                memorySize = document.querySelector('#memory_size').value;
+                holesNumber = document.querySelector('#holes_number').value;
 
                 const p = document.querySelector('p');
-                p.textContent = `Memory size = ${memorySize}, holes number = ${holesNumber}`;                
+                p.textContent = `Memory size = ${memorySize}, holes number = ${holesNumber}`;
+                // ipcRenderer.send('memory_holes', holesNumber);
+                
+                const add_holes = document.querySelector('.add_holes');
+                add_holes.style = "display:block";
             });
 
-            
-            // view the data on the frontend USELESS
+            // get the holes base and size
+            const holesForm = document.querySelector('#add_holes');
+            holesForm.addEventListener('submit', HolesInfo);
 
-            // ipcRenderer.on('memory_holes', (e,memoryHoles)=>{
-            //     const p = document.querySelector('p');
-            //     p.textContent = `Memory size = ${memoryHoles['memorySize']}, holes number = ${memoryHoles['holesNumber']}`;
-            // });
+            // get holes info
+            function HolesInfo(e){
+                e.preventDefault();
+                const holeBase = document.querySelector('#hole_base').value;
+                const holeSize = document.querySelector('#hole_size').value;
+                
+                const hole = {
+                    'base': holeBase,
+                    'size': holeSize
+                };
+                holes.append(hole);
+
+                ipcRenderer.send('holes', true);
+            }
         </script>
     </body>
 </html>

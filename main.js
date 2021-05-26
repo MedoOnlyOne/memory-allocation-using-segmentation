@@ -8,12 +8,13 @@ const {app, BrowserWindow, Menu, ipcMain} = electron;
 var ejs = new electronEjs();
 
 let mainWindow;
+let holesWindow;
 
 // Listen to the app when raedy
 app.on('ready', ()=>{
     // create the main  window
     mainWindow = new BrowserWindow({
-        // To use electron inside frontend js for ipcRenderer
+        // To use electron inside frontend js for ipc
         webPreferences: {
             contextIsolation: false,
             nodeIntegration: true
@@ -36,9 +37,24 @@ app.on('ready', ()=>{
     });
 });
 
+function holes(){
+    // create the holes  window
+    holesWindow = new BrowserWindow({
+        // To use electron inside frontend js for ipc
+        webPreferences: {
+            contextIsolation: false,
+            nodeIntegration: true
+        }
+    });
+    // load the ejs
+    holesWindow.loadURL(url.format({
+        pathname: path.join(__dirname, "/views/holes.ejs"),
+        protocol: 'file:',
+        slashes: true
+    }));
+}
 
-// Send data back to frontend  USELESS
-
-// ipcMain.on('memory_holes', (e, memoryHoles)=>{
-//     mainWindow.webContents.send('memory_holes', memoryHoles);
+// Send data back to frontend 
+// ipcMain.on('memory_holes', (e, holesNumber)=>{
+//     mainWindow.webContents.send('memory_holes', holesNumber);
 // });
