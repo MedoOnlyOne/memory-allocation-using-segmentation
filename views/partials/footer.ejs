@@ -4,41 +4,50 @@
             const {ipcRenderer} = electron;
 
             let holesNumber, memorySize;
-            let holes = {}; // array of objects each object has a base and size
+            let holes = []; // array of objects each object has a base and size
             
             // get the memory size and holes number
             const mainForm = document.querySelector('#main_form');
             mainForm.addEventListener('submit', (e)=>{
                 e.preventDefault();
-                memorySize = document.querySelector('#memory_size').value;
-                holesNumber = document.querySelector('#holes_number').value;
+                memorySize = parseInt(document.querySelector('#memory_size').value);
+                holesNumber = parseInt(document.querySelector('#holes_number').value);
 
                 const p = document.querySelector('p');
                 p.textContent = `Memory size = ${memorySize}, holes number = ${holesNumber}`;
                 // ipcRenderer.send('memory_holes', holesNumber);
                 
+                // show add holes form
                 const add_holes = document.querySelector('.add_holes');
                 add_holes.style = "display:block";
             });
 
             // get the holes base and size
+            let cnt = 0;
             const holesForm = document.querySelector('#add_holes');
-            holesForm.addEventListener('submit', HolesInfo);
-
-            // get holes info
-            function HolesInfo(e){
+            holesForm.addEventListener('submit', (e)=>{
                 e.preventDefault();
-                const holeBase = document.querySelector('#hole_base').value;
-                const holeSize = document.querySelector('#hole_size').value;
+                const holeBase = parseInt(document.querySelector('#hole_base').value);
+                const holeSize = parseInt(document.querySelector('#hole_size').value);
                 
                 const hole = {
                     'base': holeBase,
                     'size': holeSize
                 };
-                holes.append(hole);
+                holes.push(hole);
+                document.querySelector('#hole_base').value = '';
+                document.querySelector('#hole_size').value = '';
 
-                ipcRenderer.send('holes', true);
-            }
+                cnt++;
+                document.querySelector('#hole_num').textContent = cnt + 1;
+
+                // disable any ather submitions from add holes form
+                if (cnt === holesNumber){
+                    document.querySelector('#holes_submit').disabled = true;
+                    document.querySelector('#holes_header').style = "display:none";
+                    console.log(holes);
+                }
+            });
         </script>
     </body>
 </html>
