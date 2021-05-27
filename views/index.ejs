@@ -1,19 +1,44 @@
 <%- include partials/header.ejs %> 
     
-    <h1>Memory description</h1>
-    <form id="main_form">
-        <input type="number" id="memory_size" placeholder="Memory size" autofocus>
-        <input type="number" id="holes_number" placeholder="Holes number" autofocus>
-        <button type="submit">next</button>
-    </form>
-    <p></p>
-    <div class="add_holes">
-        <h1>Add holes</h1>
-        <h2 id="holes_header">Hole<span id="hole_num">1</span></h2>
-        <form id="add_holes">
-            <input type="number" id="hole_base" placeholder="The hole base" autofocus>
-            <input type="number" id="hole_size" placeholder="The hole size" autofocus>
-            <button type="submit" id="holes_submit">next</button>
-        </form>
+    
+    <div class="forms">
+        <div class="memory">
+            <h1 class="memory header">Memory description</h1>
+            <form class="memory form" id="main_form">
+                <input type="number" id="memory_size" placeholder="Memory size" autofocus>
+                <input type="number" id="holes_number" placeholder="Holes number">
+                <button type="submit">Next</button>
+            </form>
+        </div>
+        <div class="holes">
+            <h1 class="holes header">Add holes</h1>
+            <h2 class="holes subheader"id="holes">Hole <span id="hole_num">1</span></h2>
+            <form class="holes__form" id="add_holes">
+                <input type="number" id="hole_base" placeholder="The hole base" autofocus>
+                <input type="number" id="hole_size" placeholder="The hole size">
+                <button type="submit" id="holes_submit">Next</button>
+            </form>
+        </div>
+        <div class="processes_num">
+            <h1 class="processes_num header">Enter the number of processes</h1>
+            <form id="processes_num">
+                <input type="number" id="processes_number" placeholder="Processes number" autofocus>
+                <button type="submit" id="processes_num_submit">Next</button>
+            </form>
+        </div> <!-- el 7ob kolo -->
+        <div class="processes">
+            <form class="processes__form" id="processes">
+                <h1 class="processes header">Process <span id="process_cnt">1</span></h1>
+                <div class="segments_number">
+                    <h2 class="processes header">Segments Number</h2>
+                    <input type="number" id="segments_number" placeholder="Segments number" autofocus>
+                </div>
+                <div class="segments_info">
+                    <input type="text" id="segment_name" placeholder="Segments name" autofocus>
+                    <input type="number" id="segment_size" placeholder="Segment size">
+                    <button type="submit" id="segment_submit">Next</button>
+                </div>
+            </form>
+        </div>
     </div>
 <%- include partials/footer.ejs %>

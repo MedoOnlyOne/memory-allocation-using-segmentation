@@ -1,7 +1,7 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
-var electronEjs = require('electron-ejs');
+const electronEjs = require('electron-ejs');
 
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
@@ -17,7 +17,7 @@ app.on('ready', ()=>{
         // To use electron inside frontend js for ipc
         webPreferences: {
             contextIsolation: false,
-            nodeIntegration: true
+            nodeIntegration: true,
         }
     });
 

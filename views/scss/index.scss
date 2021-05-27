@@ -1,0 +1,90 @@
+/* global rules */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;    
+    font-family: sans-serif;
+}
+
+body{
+    overflow: hidden;
+}
+
+/* add holes */
+.forms{
+    // width: 200vw;
+    position: relative;
+}
+.memory{
+    transition: 0.3s ease-in-out;
+    width: 100vw;
+    & form{
+        width: 70%;
+        margin: 10px auto;
+    }
+}
+.holes{
+    position: absolute;
+    width: 100vw;
+    top: 10px;
+    left: 100vw;
+    transition: 0.3s ease-in-out;
+    & form{
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.processes_num{
+    position: absolute;
+    width: 100vw;
+    top: 10px;
+    left: 100vw;
+    transition: 0.3s ease-in-out;
+    & form{
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.processes{
+    position: absolute;
+    width: 100vw;
+    top: 10px;
+    left: 100vw;
+    transition: 0.3s;
+    & form{
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.segments_info{
+    display: none;
+}
+
+.header, .subheader{
+    width: 100%;
+    text-align: center;
+    position: static;
+}
+
+input{
+    display: block;
+    margin: 10px auto;
+    padding: 0.5em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button{
+    display: block;
+    width: 85px;
+    height: 25px;
+    margin: 10px auto;
+    color: black;
+}
