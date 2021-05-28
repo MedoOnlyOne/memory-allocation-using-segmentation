@@ -69,6 +69,20 @@ body {
   margin: 0 auto;
 }
 
+.results {
+  position: absolute;
+  width: 100vw;
+  top: 10px;
+  left: 100vw;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.results form {
+  width: 70%;
+  margin: 0 auto;
+}
+
 .segments_info {
   display: none;
 }

@@ -22,6 +22,7 @@ const holeFormHandler = e => {
         base: holeBase,
         size: holeSize,
         isHole: true,
+        name: `Hole${holes_cnt}`,
     };
     holes.push(hole);
     document.querySelector('#hole_base').value = '';
@@ -32,7 +33,7 @@ const holeFormHandler = e => {
 
     // show processes number form
     if (holes_cnt === holesNumber){
-        memeory = [...holes];
+        memory = [...holes];
         document.querySelector('#holes_submit').disabled = true;
         
         const process_num = document.querySelector('.processes_num');
@@ -52,9 +53,9 @@ const processesNumberFormHandler = e => {
     processNumber = parseInt(document.querySelector('#processes_number').value);
 
     const process_num = document.querySelector('.processes_num');
-    const processes = document.querySelector('.processes');
+    const processesArea = document.querySelector('.processes');
     
-    processes.style = "transform: translateX(-100vw) ;";
+    processesArea.style = "transform: translateX(-100vw) ;";
     process_num.style = "transform: translateX(-200vw) ;";
 };
 
@@ -64,7 +65,8 @@ const segmentsNumberHandler = ()=>{
     const process = {
         segmentsNumber: segmentsNumber,
         isHole: false,
-        segments: []
+        segments: [],
+        name: `P${processes_cnt}`,
     };
     processes.push(process);
     document.querySelector('.segments_info').style = "display:block";
@@ -72,10 +74,11 @@ const segmentsNumberHandler = ()=>{
 
 const segmentFormHandler = e => {
     e.preventDefault();
-    const segmentName = parseInt(document.querySelector('#segment_name').value);
+    const segmentName = (document.querySelector('#segment_name').value);
     const segmentSize = parseInt(document.querySelector('#segment_size').value);
     
     const segment = {
+        isHole: false,
         name: segmentName,
         size: segmentSize,
     };
@@ -89,14 +92,16 @@ const segmentFormHandler = e => {
 
     // show processes number form
     if (segments_cnt === segmentsNumber){
+        memory.push(processes[processes_cnt]);
         processes_cnt++;
         document.querySelector('#segmenet_cnt').textContent = 1;
         if (processes_cnt === processNumber){
-            const process_num = document.querySelector('.processes_num');
-            const add_holes = document.querySelector('.holes');
+            const processesArea = document.querySelector('.processes');
+            const result = document.querySelector('.results');
+
+            result.style = "transform: translateX(-100vw) ;";
+            processesArea.style = "transform: translateX(-200vw) ;";
             
-            add_holes.style = "transform: translateX(-200vw) ;";
-            process_num.style = "transform: translateX(-100vw) ;";
         } else {
             document.querySelector('.segments_info').style = "display:none";
             document.querySelector('#segments_number').value='';
@@ -108,3 +113,24 @@ const segmentFormHandler = e => {
     }
     
 };
+
+
+// Enable buttons
+// memory button
+const memoryInputs = document.querySelector('#main_form').querySelectorAll('input');
+for (let i = 0; i < memoryInputs.length; i++){
+    memoryInputs[i].addEventListener('input', ()=>{
+        const submit = document.querySelector('#memory_submit');
+        submit.disabled = (memoryInputs[0].value.length == 0) || (memoryInputs[1].value.length == 0);
+    });
+}
+
+// holes button
+const holesInputs = document.querySelector('#add_holes').querySelectorAll('input');
+for (let i = 0; i < memoryInputs.length; i++){
+    holesInputs[i].addEventListener('input', ()=>{
+        const submit = document.querySelector('#holes_submit');
+        submit.disabled = (holesInputs[0].value.length == 0) || (holesInputs[1].value.length == 0);
+    });
+}
+
