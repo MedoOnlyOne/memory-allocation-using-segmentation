@@ -112,18 +112,4 @@ button {
   margin: 10px auto;
   color: black;
 }
-
-#segments_number_submit {
-  display: block;
-  width: 85px;
-  height: 25px;
-  margin: 10px auto;
-  color: black;
-  background-color: #eee;
-  text-decoration: none;
-  border: 1px solid black;
-  text-align: center;
-  font-size: 14px;
-  padding-top: 4px;
-}
 /*# sourceMappingURL=index.css.map */

@@ -69,6 +69,8 @@ const segmentsNumberHandler = ()=>{
         name: `P${processes_cnt}`,
     };
     processes.push(process);
+    document.querySelector('#segments_number').disabled = true;
+    document.querySelector('#segments_number_submit').disabled = true;
     document.querySelector('.segments_info').style = "display:block";
 };
 
@@ -86,7 +88,7 @@ const segmentFormHandler = e => {
 
     document.querySelector('#segment_name').value = '';
     document.querySelector('#segment_size').value = '';
-
+    document.querySelector('#segment_submit').disabled = true;
     segments_cnt++;
     
 
@@ -95,6 +97,7 @@ const segmentFormHandler = e => {
         memory.push(processes[processes_cnt]);
         processes_cnt++;
         document.querySelector('#segmenet_cnt').textContent = 1;
+        document.querySelector('#segments_number').disabled = false;
         if (processes_cnt === processNumber){
             const processesArea = document.querySelector('.processes');
             const result = document.querySelector('.results');
@@ -127,10 +130,34 @@ for (let i = 0; i < memoryInputs.length; i++){
 
 // holes button
 const holesInputs = document.querySelector('#add_holes').querySelectorAll('input');
-for (let i = 0; i < memoryInputs.length; i++){
+for (let i = 0; i < holesInputs.length; i++){
     holesInputs[i].addEventListener('input', ()=>{
         const submit = document.querySelector('#holes_submit');
         submit.disabled = (holesInputs[0].value.length == 0) || (holesInputs[1].value.length == 0);
     });
 }
 
+// processes number button
+const processesNumberInput = document.querySelector('#processes_num').querySelectorAll('input');
+for (let i = 0; i < processesNumberInput.length; i++){
+    processesNumberInput[i].addEventListener('input', ()=>{
+        const submit = document.querySelector('#processes_num_submit');
+        submit.disabled = (processesNumberInput[0].value.length == 0);
+    });
+}
+
+// processes info
+const segments_Number_Input = document.querySelector('#segments_number');
+segments_Number_Input.addEventListener('input', ()=>{
+    const submit = document.querySelector('#segments_number_submit');
+    submit.disabled = (segments_Number_Input.value.length == 0);
+});
+const segment_name_Input = document.querySelector('#segment_name');
+const segment_size_Input = document.querySelector('#segment_size');
+const segment_Input = [segment_name_Input, segment_size_Input];
+for (let i = 0; i < segment_Input.length; i++){
+    segment_Input[i].addEventListener('input', ()=>{
+        const submit = document.querySelector('#segment_submit');
+        submit.disabled = (segment_Input[0].value.length == 0) || (segment_Input[1].value.length == 0);
+    });
+}
