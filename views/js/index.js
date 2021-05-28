@@ -26,3 +26,7 @@ segmentsNumberInput.addEventListener('click', segmentsNumberHandler);
 // get processes info
 const segments = document.querySelector('#processes');
 segments.addEventListener('submit', segmentFormHandler);
+
+// select algo
+const algo = document.querySelector('#algo_select');
+algo.addEventListener('submit', selectAlgoHandler);

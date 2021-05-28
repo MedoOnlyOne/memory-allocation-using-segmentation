@@ -69,7 +69,7 @@ body {
   margin: 0 auto;
 }
 
-.results {
+.select_algo {
   position: absolute;
   width: 100vw;
   top: 10px;
@@ -78,7 +78,21 @@ body {
   transition: 0.3s;
 }
 
-.results form {
+.select_algo form {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.result {
+  position: absolute;
+  width: 100vw;
+  top: 10px;
+  left: 100vw;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.result form {
   width: 70%;
   margin: 0 auto;
 }

@@ -59,7 +59,19 @@ body{
     }
 }
 
-.results{
+.select_algo{
+    position: absolute;
+    width: 100vw;
+    top: 10px;
+    left: 100vw;
+    transition: 0.3s;
+    & form{
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.result{
     position: absolute;
     width: 100vw;
     top: 10px;

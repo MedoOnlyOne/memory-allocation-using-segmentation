@@ -27,6 +27,7 @@ const holeFormHandler = e => {
     holes.push(hole);
     document.querySelector('#hole_base').value = '';
     document.querySelector('#hole_size').value = '';
+    document.querySelector('#holes_submit').disabled = true;
 
     holes_cnt++;
     
@@ -100,9 +101,9 @@ const segmentFormHandler = e => {
         document.querySelector('#segments_number').disabled = false;
         if (processes_cnt === processNumber){
             const processesArea = document.querySelector('.processes');
-            const result = document.querySelector('.results');
+            const select = document.querySelector('.select_algo');
 
-            result.style = "transform: translateX(-100vw) ;";
+            select.style = "transform: translateX(-100vw) ;";
             processesArea.style = "transform: translateX(-200vw) ;";
             
         } else {
@@ -114,9 +115,15 @@ const segmentFormHandler = e => {
     } else {
         document.querySelector('#segmenet_cnt').textContent = segments_cnt + 1;
     }
-    
 };
 
+const selectAlgoHandler = e => {
+    e.preventDefault();
+    const result = document.querySelector('.result');
+    const select = document.querySelector('.select_algo');
+    result.style = "transform: translateX(-100vw) ;";
+    select.style = "transform: translateX(-200vw) ;";
+};
 
 // Enable buttons
 // memory button

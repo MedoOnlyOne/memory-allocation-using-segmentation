@@ -1,6 +1,13 @@
 const displayMemory = (processes, holes, memorySize) => {
     const memeoryElement = document.createElement('div');
-    firstFit(processes, holes);
+    // get the selected algorithm
+    const algorithm = document.querySelector('#algorithm').value;
+    if (algorithm === 1){
+        firstFit(processes, holes);
+    } else if (algorithm === 2){
+        bestFit(processes, holes);
+    }
+
     const blocks = [];
     let memory = [...holes];
     for(let process of processes){
