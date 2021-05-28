@@ -57,3 +57,54 @@ const processesNumberFormHandler = e => {
     processes.style = "transform: translateX(-100vw) ;";
     process_num.style = "transform: translateX(-200vw) ;";
 };
+
+const segmentsNumberHandler = ()=>{
+    segmentsNumber = parseInt(document.querySelector('#segments_number').value);
+    segments_cnt = 0;
+    const process = {
+        segmentsNumber: segmentsNumber,
+        isHole: false,
+        segments: []
+    };
+    processes.push(process);
+    document.querySelector('.segments_info').style = "display:block";
+};
+
+const segmentFormHandler = e => {
+    e.preventDefault();
+    const segmentName = parseInt(document.querySelector('#segment_name').value);
+    const segmentSize = parseInt(document.querySelector('#segment_size').value);
+    
+    const segment = {
+        name: segmentName,
+        size: segmentSize,
+    };
+    processes[processes_cnt]['segments'].push(segment);
+
+    document.querySelector('#segment_name').value = '';
+    document.querySelector('#segment_size').value = '';
+
+    segments_cnt++;
+    
+
+    // show processes number form
+    if (segments_cnt === segmentsNumber){
+        processes_cnt++;
+        document.querySelector('#segmenet_cnt').textContent = 1;
+        if (processes_cnt === processNumber){
+            const process_num = document.querySelector('.processes_num');
+            const add_holes = document.querySelector('.holes');
+            
+            add_holes.style = "transform: translateX(-200vw) ;";
+            process_num.style = "transform: translateX(-100vw) ;";
+        } else {
+            document.querySelector('.segments_info').style = "display:none";
+            document.querySelector('#segments_number').value='';
+            document.querySelector('#process_cnt').textContent = processes_cnt + 1;
+        }
+
+    } else {
+        document.querySelector('#segmenet_cnt').textContent = segments_cnt + 1;
+    }
+    
+};

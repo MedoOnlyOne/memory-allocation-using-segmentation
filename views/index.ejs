@@ -32,13 +32,18 @@
                 <div class="segments_number">
                     <h2 class="processes header">Segments Number</h2>
                     <input type="number" id="segments_number" placeholder="Segments number" autofocus>
+                    <a href="#" id="segments_number_submit">Next</a>
                 </div>
                 <div class="segments_info">
+                    <h1 class="processes header">Segment <span id="segmenet_cnt">1</span></h1>
                     <input type="text" id="segment_name" placeholder="Segments name" autofocus>
                     <input type="number" id="segment_size" placeholder="Segment size">
                     <button type="submit" id="segment_submit">Next</button>
                 </div>
             </form>
+        </div>
+        <div class="results">
+            <p></p>
         </div>
     </div>
 <%- include partials/footer.ejs %>
