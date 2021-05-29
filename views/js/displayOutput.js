@@ -32,7 +32,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                     base: memory[i].base,
                     size: memory[i].size,
                     name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
-                })
+                });
             }
             else{
                 blocks.push({
@@ -40,7 +40,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                     base: 0,
                     size: memory[i].size,
                     name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
-                })
+                });
             }
         }
         else{
@@ -48,7 +48,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                 blocks.push({
                     type:'unknown',
                     base: memory[i-1].base + memory[i-1].size,
-                    size: memory[i].size,
+                    size: memory[i].base - ( memory[i-1].base + memory[i-1].size ),
                     name: 'Old Process',
                 });
                 blocks.push({
@@ -56,7 +56,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                     base: memory[i].base,
                     size: memory[i].size,
                     name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
-                })
+                });
             }
             else{
                 blocks.push({
@@ -64,7 +64,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                     base: memory[i].base,
                     size: memory[i].size,
                     name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
-                })
+                });
             }
         }
         if (memory[i].isHole)
