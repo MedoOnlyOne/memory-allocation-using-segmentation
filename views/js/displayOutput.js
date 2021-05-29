@@ -1,3 +1,4 @@
+const blocks = [];
 const calculateMemoryBlocks = (processes, holes, memorySize) => {
     // get the selected algorithm
     const algorithm = parseInt(document.querySelector('#algorithm').value);
@@ -8,7 +9,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
         bestFit(processes, holes);
     }
     console.log(processes);
-    const blocks = [];
+    // const blocks = [];
     let memory = [...holes];
     for(let process of processes){
         memory = memory.concat(process.segments);
