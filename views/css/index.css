@@ -95,6 +95,15 @@ body {
   left: 100vw;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .result form {
@@ -133,9 +142,14 @@ button {
 }
 
 .memory-output {
-  width: 70%;
-  max-width: 400px;
+  -ms-flex-preferred-size: 65%;
+      flex-basis: 65%;
   margin: 0 auto;
+}
+
+.memory-output h1 {
+  text-align: center;
+  margin: 10px;
 }
 
 .memory-block {
@@ -176,5 +190,21 @@ button {
 
 .old-process {
   background-color: #eee;
+}
+
+.memory-warning {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  padding: 1em;
+  background-color: #edff008c;
+  border-radius: 20px;
+}
+
+.warning-p {
+  line-height: 1.8;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: center;
 }
 /*# sourceMappingURL=index.css.map */

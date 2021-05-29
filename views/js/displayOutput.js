@@ -1,4 +1,5 @@
 const blocks = [];
+let donnotFit = [];
 const calculateMemoryBlocks = (processes, holes, memorySize) => {
     // get the selected algorithm
     const algorithm = parseInt(document.querySelector('#algorithm').value);
@@ -18,6 +19,15 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
         const x = a.base; const y = b.base;
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
+    console.log("Memory");
+    console.log(memory);
+    for (let i = 0; i < memory.length; i++){
+        if (memory[i].base === undefined){
+            donnotFit.push(memory[i]);
+            memory.splice(i, 1);
+            i--;
+        }
+    }
     let holeCount = 0;
     for(let i = 0; i < memory.length ; i++ ){
         if (i==0){

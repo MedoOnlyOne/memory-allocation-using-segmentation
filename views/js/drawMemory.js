@@ -7,6 +7,13 @@ drawMemory = blocks => {
     //     totalSize += block.size;
     // }
     let totalSize = parseInt(document.querySelector('#memory_size').value);
+    if (blocks.length > 0){
+        const deallocate = document.createElement('h1');
+        deallocate.classList.add('header');
+        deallocate.classList.add('result');
+        deallocate.textContent = "Double click to deAllocate";
+        memoryElement.appendChild(deallocate);
+    }
     for ( let i = 0; i < blocks.length; i++ ){
         const blockElement = document.createElement('div');
         blockElement.classList.add('memory-block');
@@ -49,4 +56,22 @@ drawMemory = blocks => {
         memoryElement.appendChild(blockElement);
     }
     document.querySelector('.result').appendChild(memoryElement);
+
+    // craete warning section
+    let test = document.querySelector('.memory-warning');
+    if (donnotFit.length > 0 && test === null){
+        const memoryWarning = document.createElement('div');
+        memoryWarning.classList.add('memory-warning');
+        for (let i = 0; i < donnotFit.length; i++){
+            let warningName = donnotFit[i].name;
+            let warningProcess = donnotFit[i].process;
+            let warningSize = donnotFit[i].size;
+
+            const warning = document.createElement('p');
+            warning.classList.add('warning-p');
+            warning.textContent = `Can't allocate ${warningProcess}, segment: ${warningName}, of size: ${warningSize}`;
+            memoryWarning.appendChild(warning);
+        }
+        document.querySelector('.result').appendChild(memoryWarning);
+    }
 }
