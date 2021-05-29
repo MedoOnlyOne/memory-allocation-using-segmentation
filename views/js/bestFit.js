@@ -1,18 +1,25 @@
 const bestFit = (processes, holes) => {
     for( process of processes ){
-        let best = [];
         for(segment of process.segments){
+            let best = '';
             for( hole of holes ){
                 if (hole.size >= segment.size ){
-                    best.push(hole);
+                    if (best == ''){
+                        best = hole.name;
+                    } else {
+                        for (h of holes){
+                            if (h.name == best){
+                                if (hole.size < h.size){
+                                    best = hole.name;
+                                }
+                                break;
+                            }
+                        }
+                    }
                 }
             }
-            best.sort( (a, b) => {
-                const x = a.size; const y = b.size;
-                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-            });
             for(hole of holes){
-                if (hole === best[0]){
+                if (hole.name == best){
                     segment.base = hole.base;
                     hole.size -= segment.size;
                     hole.base +=  segment.size;
