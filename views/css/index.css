@@ -1,7 +1,6 @@
 /* global rules */
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: sans-serif;
@@ -16,8 +15,11 @@ body {
   position: relative;
 }
 
+.stop-transition {
+  transition: none !important;
+}
+
 .memory {
-  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   width: 100vw;
 }
@@ -32,7 +34,6 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
-  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
@@ -46,7 +47,6 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
-  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
@@ -60,7 +60,6 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -74,7 +73,6 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -88,7 +86,6 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -126,4 +123,15 @@ button {
   margin: 10px auto;
   color: black;
 }
-/*# sourceMappingURL=index.css.map */
+
+.memory-output {
+  width: 70%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.memory-block {
+  border: 2px solid black;
+  font-size: 1rem;
+  padding: 0.5em;
+}

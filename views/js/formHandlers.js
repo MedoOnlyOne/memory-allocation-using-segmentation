@@ -83,6 +83,7 @@ const segmentFormHandler = e => {
     const segment = {
         isHole: false,
         name: segmentName,
+        process: `P${processes_cnt}`,
         size: segmentSize,
     };
     processes[processes_cnt]['segments'].push(segment);
@@ -123,6 +124,7 @@ const selectAlgoHandler = e => {
     const select = document.querySelector('.select_algo');
     result.style = "transform: translateX(-100vw) ;";
     select.style = "transform: translateX(-200vw) ;";
+    drawMemory(calculateMemoryBlocks(processes, holes, memorySize));
 };
 
 // Enable buttons

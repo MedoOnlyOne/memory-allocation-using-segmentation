@@ -14,7 +14,13 @@ body{
 .forms{
     // width: 200vw;
     position: relative;
+    
 }
+
+.stop-transition{
+    transition: none !important;
+}
+
 .memory{
     transition: 0.3s ease-in-out;
     width: 100vw;
@@ -111,4 +117,16 @@ button{
     height: 25px;
     margin: 10px auto;
     color: black;
+}
+
+.memory-output{
+    width: 70%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.memory-block{
+    border: 2px solid black;
+    font-size: 1rem;
+    padding: 0.5em;
 }

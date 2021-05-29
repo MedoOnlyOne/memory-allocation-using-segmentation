@@ -1,13 +1,13 @@
-const displayMemory = (processes, holes, memorySize) => {
-    const memeoryElement = document.createElement('div');
+const calculateMemoryBlocks = (processes, holes, memorySize) => {
     // get the selected algorithm
-    const algorithm = document.querySelector('#algorithm').value;
+    const algorithm = parseInt(document.querySelector('#algorithm').value);
     if (algorithm === 1){
         firstFit(processes, holes);
-    } else if (algorithm === 2){
+    } 
+    else if (algorithm === 2){
         bestFit(processes, holes);
     }
-
+    console.log(processes);
     const blocks = [];
     let memory = [...holes];
     for(let process of processes){
@@ -17,7 +17,6 @@ const displayMemory = (processes, holes, memorySize) => {
         const x = a.base; const y = b.base;
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
-    console.log(memory);
     let holeCount = 0;
     for(let i = 0; i < memory.length ; i++ ){
         if (i==0){
@@ -26,13 +25,13 @@ const displayMemory = (processes, holes, memorySize) => {
                     type:'unknown',
                     base: 0,
                     size: memory[i].base,
-                    name: '',
+                    name: 'Old Process',
                 });
                 blocks.push({
                     type: memory[i].isHole ? 'hole' : 'process',
                     base: memory[i].base,
                     size: memory[i].size,
-                    name: memory[i].isHole ? `Hole ${holeCount}` : memory[i].name,
+                    name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
                 })
             }
             else{
@@ -40,7 +39,7 @@ const displayMemory = (processes, holes, memorySize) => {
                     type: memory[i].isHole ? 'hole' : 'process',
                     base: 0,
                     size: memory[i].size,
-                    name: memory[i].isHole ? `Hole ${holeCount}` : memory[i].name,
+                    name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
                 })
             }
         }
@@ -50,13 +49,13 @@ const displayMemory = (processes, holes, memorySize) => {
                     type:'unknown',
                     base: memory[i-1].base + memory[i-1].size,
                     size: memory[i].size,
-                    name: '',
+                    name: 'Old Process',
                 });
                 blocks.push({
                     type: memory[i].isHole ? 'hole' : 'process',
                     base: memory[i].base,
                     size: memory[i].size,
-                    name: memory[i].isHole ? `Hole ${holeCount}` : memory[i].name,
+                    name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
                 })
             }
             else{
@@ -64,7 +63,7 @@ const displayMemory = (processes, holes, memorySize) => {
                     type: memory[i].isHole ? 'hole' : 'process',
                     base: memory[i].base,
                     size: memory[i].size,
-                    name: memory[i].isHole ? `Hole ${holeCount}` : memory[i].name,
+                    name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
                 })
             }
         }
@@ -73,11 +72,16 @@ const displayMemory = (processes, holes, memorySize) => {
     }
     if (blocks[blocks.length - 1 ].base + blocks[blocks.length - 1 ].size < memorySize ){
         blocks.push({
-            type: 'unkown',
+            type: 'unknown',
             base: blocks[blocks.length - 1 ].base + blocks[blocks.length - 1 ].size,
             size: memorySize - blocks[blocks.length - 1 ].base - blocks[blocks.length - 1 ].size,
-            name: '',
+            name: 'Old Process',
         });
     }
-    console.log(blocks);
+    blocks.sort( (a, b) => {
+        const x = a.base; const y = b.base;
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+    console.log(blocks);    
+    return blocks;
 };
