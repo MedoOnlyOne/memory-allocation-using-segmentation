@@ -214,6 +214,9 @@ button:disabled {
   margin: 0 auto;
   max-width: 480px;
   padding: 0 20px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 .memory-output h1 {
@@ -273,6 +276,9 @@ button:disabled {
   background-color: #edff008c;
   border-radius: 20px;
   margin: 0 auto;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 
 .warning-p {

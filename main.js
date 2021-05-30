@@ -27,6 +27,9 @@ app.on('ready', ()=>{
         protocol: 'file:',
         slashes: true       // file://dirname/index.ejs
     }));
+
+    // maximize the window
+    mainWindow.maximize();
     
     // remove the menu when finished
     // Menu.setApplicationMenu(null);
