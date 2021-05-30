@@ -148,7 +148,7 @@ const memoryInputs = document.querySelector('#main_form').querySelectorAll('inpu
 for (let i = 0; i < memoryInputs.length; i++){
     memoryInputs[i].addEventListener('input', ()=>{
         const submit = document.querySelector('#memory_submit');
-        submit.disabled = (memoryInputs[0].value.length == 0) || (memoryInputs[1].value.length == 0);
+        submit.disabled = ((memoryInputs[0].value.length == 0) || (memoryInputs[1].value.length == 0)) || ((parseInt(memoryInputs[0].value) == 0) || (parseInt(memoryInputs[1].value) == 0));
     });
 }
 
@@ -157,7 +157,7 @@ const holesInputs = document.querySelector('#add_holes').querySelectorAll('input
 for (let i = 0; i < holesInputs.length; i++){
     holesInputs[i].addEventListener('input', ()=>{
         const submit = document.querySelector('#holes_submit');
-        submit.disabled = (holesInputs[0].value.length == 0) || (holesInputs[1].value.length == 0);
+        submit.disabled = ((holesInputs[0].value.length == 0) || (holesInputs[1].value.length == 0)) || ((parseInt(holesInputs[1].value) == 0));
     });
 }
 
@@ -166,7 +166,7 @@ const processesNumberInput = document.querySelector('#processes_num').querySelec
 for (let i = 0; i < processesNumberInput.length; i++){
     processesNumberInput[i].addEventListener('input', ()=>{
         const submit = document.querySelector('#processes_num_submit');
-        submit.disabled = (processesNumberInput[0].value.length == 0);
+        submit.disabled = (processesNumberInput[0].value.length == 0) || (parseInt(processesNumberInput[0].value) == 0);
     });
 }
 
@@ -174,7 +174,7 @@ for (let i = 0; i < processesNumberInput.length; i++){
 const segments_Number_Input = document.querySelector('#segments_number');
 segments_Number_Input.addEventListener('input', ()=>{
     const submit = document.querySelector('#segments_number_submit');
-    submit.disabled = (segments_Number_Input.value.length == 0);
+    submit.disabled = (segments_Number_Input.value.length == 0) || (parseInt(segments_Number_Input.value) == 0);
 });
 const segment_name_Input = document.querySelector('#segment_name');
 const segment_size_Input = document.querySelector('#segment_size');
@@ -182,6 +182,6 @@ const segment_Input = [segment_name_Input, segment_size_Input];
 for (let i = 0; i < segment_Input.length; i++){
     segment_Input[i].addEventListener('input', ()=>{
         const submit = document.querySelector('#segment_submit');
-        submit.disabled = (segment_Input[0].value.length == 0) || (segment_Input[1].value.length == 0);
+        submit.disabled = ((segment_Input[0].value.length == 0) || (segment_Input[1].value.length == 0)) || ((parseInt(segment_Input[1].value) == 0));
     });
 }
