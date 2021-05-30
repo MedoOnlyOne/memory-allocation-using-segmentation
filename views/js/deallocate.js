@@ -36,7 +36,7 @@ const deallocate = blocks =>{
                 // Combine holes
                 let holeCnt = 0;
                 for (let j = 0; j < blocks.length; j++){
-                    if (blocks[j].type == "hole"){
+                    if (blocks[j].type == "hole" && blocks[j].size > 0){
                         blocks[j].name = `Hole ${holeCnt}`;
                         holeCnt++;
                         for (let k = j + 1; k < blocks.length; k++){
