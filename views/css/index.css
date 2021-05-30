@@ -3,7 +3,29 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* ubuntu-regular - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../fonts/ubuntu-v15-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../../fonts/ubuntu-v15-latin-regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/ubuntu-v15-latin-regular.woff2") format("woff2"), url("../../fonts/ubuntu-v15-latin-regular.woff") format("woff"), url("../../fonts/ubuntu-v15-latin-regular.ttf") format("truetype"), url("../../fonts/ubuntu-v15-latin-regular.svg#Ubuntu") format("svg");
+  /* Legacy iOS */
+}
+
+/* ubuntu-700 - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../fonts/ubuntu-v15-latin-700.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../../fonts/ubuntu-v15-latin-700.eot?#iefix") format("embedded-opentype"), url("../../fonts/ubuntu-v15-latin-700.woff2") format("woff2"), url("../../fonts/ubuntu-v15-latin-700.woff") format("woff"), url("../../fonts/ubuntu-v15-latin-700.ttf") format("truetype"), url("../../fonts/ubuntu-v15-latin-700.svg#Ubuntu") format("svg");
+  /* Legacy iOS */
 }
 
 body {
@@ -11,8 +33,27 @@ body {
 }
 
 /* add holes */
+.back-button {
+  position: fixed;
+  background-image: url("../icons/icons8-back-24.png");
+  top: 4vh;
+  left: 2vw;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: 44% 50%;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .forms {
   position: relative;
+  top: 70px;
 }
 
 .stop-transition {
@@ -102,6 +143,7 @@ body {
   width: 100%;
   text-align: center;
   position: static;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 input {
@@ -118,10 +160,19 @@ input::-webkit-inner-spin-button {
 
 button {
   display: block;
-  width: 85px;
+  width: 95px;
   height: 25px;
   margin: 10px auto;
-  color: black;
+  background-color: #6209e8;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+  color: #ccc;
 }
 
 .memory-output {

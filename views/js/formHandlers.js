@@ -11,6 +11,7 @@ const memoryFormHandler = e => {
     
     add_holes.style = "transform: translateX(-100vw) ;";
     memory.style = "transform: translateX(-100vw) ;";
+    position++;
 };
 
 const holeFormHandler = e => {
@@ -34,6 +35,8 @@ const holeFormHandler = e => {
 
     // show processes number form
     if (holes_cnt === holesNumber){
+        holes_cnt = 0;
+        document.querySelector('#hole_num').textContent = holes_cnt + 1;
         memory = [...holes];
         document.querySelector('#holes_submit').disabled = true;
         
@@ -42,11 +45,11 @@ const holeFormHandler = e => {
         
         add_holes.style = "transform: translateX(-200vw) ;";
         process_num.style = "transform: translateX(-100vw) ;";
+        position++;
 
     } else {
         document.querySelector('#hole_num').textContent = holes_cnt + 1;
     }
-    
 };
 
 const processesNumberFormHandler = e => {
@@ -58,11 +61,11 @@ const processesNumberFormHandler = e => {
     
     processesArea.style = "transform: translateX(-100vw) ;";
     process_num.style = "transform: translateX(-200vw) ;";
+    position++;
 };
 
 const segmentsNumberHandler = ()=>{
     segmentsNumber = parseInt(document.querySelector('#segments_number').value);
-    segments_cnt = 0;
     const process = {
         segmentsNumber: segmentsNumber,
         isHole: false,
@@ -72,12 +75,13 @@ const segmentsNumberHandler = ()=>{
     processes.push(process);
     document.querySelector('#segments_number').disabled = true;
     document.querySelector('#segments_number_submit').disabled = true;
-    document.querySelector('.segments_info').style = "display:block";
+    document.querySelector('#segmenet_cnt').textContent = segments_cnt + 1;
+    document.querySelector('.segments_info').style = "display: block";
 };
 
 const segmentFormHandler = e => {
     e.preventDefault();
-    const segmentName = (document.querySelector('#segment_name').value);
+    const segmentName = document.querySelector('#segment_name').value;
     const segmentSize = parseInt(document.querySelector('#segment_size').value);
     
     const segment = {
@@ -98,22 +102,27 @@ const segmentFormHandler = e => {
     if (segments_cnt === segmentsNumber){
         memory.push(processes[processes_cnt]);
         processes_cnt++;
-        document.querySelector('#segmenet_cnt').textContent = 1;
+        segments_cnt = 0;
+        document.querySelector('#segmenet_cnt').textContent = segments_cnt + 1;
         document.querySelector('#segments_number').disabled = false;
         if (processes_cnt === processNumber){
+            processes_cnt = 0;
+            document.querySelector('#process_cnt').textContent = processes_cnt + 1;
             const processesArea = document.querySelector('.processes');
             const select = document.querySelector('.select_algo');
 
             select.style = "transform: translateX(-100vw) ;";
             processesArea.style = "transform: translateX(-200vw) ;";
+            position++;
             
-        } else {
+        }
+        else {
             document.querySelector('.segments_info').style = "display:none";
             document.querySelector('#segments_number').value='';
             document.querySelector('#process_cnt').textContent = processes_cnt + 1;
         }
-
-    } else {
+    }
+    else {
         document.querySelector('#segmenet_cnt').textContent = segments_cnt + 1;
     }
 };
@@ -124,6 +133,7 @@ const selectAlgoHandler = e => {
     const select = document.querySelector('.select_algo');
     result.style = "transform: translateX(-100vw) ;";
     select.style = "transform: translateX(-200vw) ;";
+    position++;
     drawMemory(calculateMemoryBlocks(processes, holes, memorySize));
 };
 

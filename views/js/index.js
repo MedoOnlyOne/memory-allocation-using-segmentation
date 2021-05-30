@@ -4,6 +4,7 @@ const { ipcRenderer } = electron;
 let memory, processNumber, holesNumber, memorySize, segmentsNumber;
 let holes = []; // array of objects each object has a base and size
 let processes = []; // array of objects each object has a sgmentsNumber, sgmentsNumber arrays of objects contains segmentName, segmentSize
+let position = 0;
 
 // get the memory size and holes number
 const mainForm = document.querySelector('#main_form');
