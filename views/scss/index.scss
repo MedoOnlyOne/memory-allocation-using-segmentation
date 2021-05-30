@@ -105,6 +105,9 @@ body{
         width: 70%;
         margin: 0 auto;
     }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .segments_info{
@@ -148,13 +151,65 @@ button{
 }
 
 .memory-output{
-    width: 70%;
-    max-width: 400px;
+    flex-basis: 65%;
     margin: 0 auto;
+}
+
+.memory-output h1{
+    text-align: center;
+    margin: 10px;
 }
 
 .memory-block{
     border: 2px solid black;
     font-size: 1rem;
     padding: 0.5em;
+    position: relative;
+}
+
+.block-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 21px;
+}
+
+.memory-size-top{
+    position: absolute;
+    top: -5px;
+    left: -30px;
+}
+
+.memory-size-bottom{
+    position: absolute;
+    bottom: -10px;
+    left: -50px;
+}
+
+.process{
+    background-color: #0017ffad;
+}
+
+.hole{
+    background-color: #ff10009e;
+}
+
+.old-process{
+    background-color: #eee;
+}
+
+.memory-warning{
+    flex-basis: 40%;
+    padding: 1em;
+    background-color: #edff008c;
+    border-radius: 20px;
+}
+
+.warning-p{
+    line-height: 1.8;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+    text-align: center;
 }

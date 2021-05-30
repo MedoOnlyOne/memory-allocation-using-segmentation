@@ -1,6 +1,7 @@
 /* global rules */
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
@@ -57,10 +58,12 @@ body {
 }
 
 .stop-transition {
+  -webkit-transition: none !important;
   transition: none !important;
 }
 
 .memory {
+  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   width: 100vw;
 }
@@ -75,6 +78,7 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
+  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
@@ -88,6 +92,7 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
+  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
@@ -101,6 +106,7 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -114,6 +120,7 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -127,7 +134,17 @@ body {
   width: 100vw;
   top: 10px;
   left: 100vw;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .result form {
@@ -176,13 +193,69 @@ button:disabled {
 }
 
 .memory-output {
-  width: 70%;
-  max-width: 400px;
+  -ms-flex-preferred-size: 65%;
+      flex-basis: 65%;
   margin: 0 auto;
+}
+
+.memory-output h1 {
+  text-align: center;
+  margin: 10px;
 }
 
 .memory-block {
   border: 2px solid black;
   font-size: 1rem;
   padding: 0.5em;
+  position: relative;
 }
+
+.block-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 21px;
+}
+
+.memory-size-top {
+  position: absolute;
+  top: -5px;
+  left: -30px;
+}
+
+.memory-size-bottom {
+  position: absolute;
+  bottom: -10px;
+  left: -50px;
+}
+
+.process {
+  background-color: #0017ffad;
+}
+
+.hole {
+  background-color: #ff10009e;
+}
+
+.old-process {
+  background-color: #eee;
+}
+
+.memory-warning {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  padding: 1em;
+  background-color: #edff008c;
+  border-radius: 20px;
+}
+
+.warning-p {
+  line-height: 1.8;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: center;
+}
+/*# sourceMappingURL=index.css.map */

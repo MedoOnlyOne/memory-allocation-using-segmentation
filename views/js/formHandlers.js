@@ -135,6 +135,7 @@ const selectAlgoHandler = e => {
     select.style = "transform: translateX(-200vw) ;";
     position++;
     drawMemory(calculateMemoryBlocks(processes, holes, memorySize));
+    deallocate(blocks);
 };
 
 // Enable buttons

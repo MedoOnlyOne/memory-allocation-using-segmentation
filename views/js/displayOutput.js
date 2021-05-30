@@ -1,3 +1,5 @@
+const blocks = [];
+let donnotFit = [];
 const calculateMemoryBlocks = (processes, holes, memorySize) => {
     // get the selected algorithm
     const algorithm = parseInt(document.querySelector('#algorithm').value);
@@ -8,7 +10,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
         bestFit(processes, holes);
     }
     console.log(processes);
-    const blocks = [];
+    // const blocks = [];
     let memory = [...holes];
     for(let process of processes){
         memory = memory.concat(process.segments);
@@ -17,6 +19,15 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
         const x = a.base; const y = b.base;
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
+    console.log("Memory");
+    console.log(memory);
+    for (let i = 0; i < memory.length; i++){
+        if (memory[i].base === undefined){
+            donnotFit.push(memory[i]);
+            memory.splice(i, 1);
+            i--;
+        }
+    }
     let holeCount = 0;
     for(let i = 0; i < memory.length ; i++ ){
         if (i==0){
@@ -32,7 +43,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                     base: memory[i].base,
                     size: memory[i].size,
                     name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
-                })
+                });
             }
             else{
                 blocks.push({
@@ -40,7 +51,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                     base: 0,
                     size: memory[i].size,
                     name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
-                })
+                });
             }
         }
         else{
@@ -48,7 +59,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                 blocks.push({
                     type:'unknown',
                     base: memory[i-1].base + memory[i-1].size,
-                    size: memory[i].size,
+                    size: memory[i].base - ( memory[i-1].base + memory[i-1].size ),
                     name: 'Old Process',
                 });
                 blocks.push({
@@ -56,7 +67,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                     base: memory[i].base,
                     size: memory[i].size,
                     name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
-                })
+                });
             }
             else{
                 blocks.push({
@@ -64,7 +75,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
                     base: memory[i].base,
                     size: memory[i].size,
                     name: memory[i].isHole ? `Hole ${holeCount}` : `${memory[i].name} (${memory[i].process})`,
-                })
+                });
             }
         }
         if (memory[i].isHole)
