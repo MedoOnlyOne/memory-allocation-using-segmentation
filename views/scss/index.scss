@@ -58,10 +58,6 @@ body{
 .memory{
     transition: 0.3s ease-in-out;
     width: 100vw;
-    & form{
-        width: 70%;
-        margin: 10px auto;
-    }
 }
 .holes{
     position: absolute;
@@ -69,10 +65,6 @@ body{
     top: 10px;
     left: 100vw;
     transition: 0.3s ease-in-out;
-    & form{
-        width: 70%;
-        margin: 0 auto;
-    }
 }
 
 .processes_num{
@@ -81,10 +73,6 @@ body{
     top: 10px;
     left: 100vw;
     transition: 0.3s ease-in-out;
-    & form{
-        width: 70%;
-        margin: 0 auto;
-    }
 }
 
 .processes{
@@ -93,10 +81,6 @@ body{
     top: 10px;
     left: 100vw;
     transition: 0.3s;
-    & form{
-        width: 70%;
-        margin: 0 auto;
-    }
 }
 
 .select_algo{
@@ -105,10 +89,6 @@ body{
     top: 10px;
     left: 100vw;
     transition: 0.3s;
-    & form{
-        width: 70%;
-        margin: 0 auto;
-    }
 }
 
 .result{
@@ -117,10 +97,6 @@ body{
     top: 10px;
     left: 100vw;
     transition: 0.3s;
-    & form{
-        width: 70%;
-        margin: 0 auto;
-    }
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -130,7 +106,15 @@ body{
     display: none;
 }
 
-.header, .subheader{
+.header{
+    width: 100%;
+    text-align: center;
+    position: static;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 15px;
+}
+
+.subheader{
     width: 100%;
     text-align: center;
     position: static;
@@ -152,18 +136,60 @@ input::-webkit-inner-spin-button {
 button{
     display: block;
     width: 95px;
-    height: 25px;
+    height: 30px;
     margin: 10px auto;
-    // background-image: linear-gradient(to right,#00bd45,#6209e8);
-    background-color: #6209e8;
+    background-color: #6209e896;
+    transition: 0.3s ease-in-out;
     color: white;
-    border-radius: 10px;
+    border-radius: 25px;
     border: none ;
     cursor: pointer;
+    position: absolute;
+    right: 22px;
+    bottom: 0px;
     &:disabled{
         cursor: default;
-        color: #ccc;
+        color: black;
     }
+    &:enabled{
+        cursor: pointer;
+        font-weight: bold;
+        background-color: #6209e8;
+        padding: 0 5px;
+    }
+}
+
+form {
+    position: relative;
+    max-width: 70vw;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 35px;
+    margin-top: 35px;
+    padding: 25px 0;
+}
+
+select {
+    display: block;
+    width: 165px;
+    height: 45px;
+    margin: 5px auto;
+    padding: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+}
+
+select:hover{
+    font-weight: bold;
+    background-color: #6209e8;
+    color: white;
+    padding: 0 10px;
+}
+
+.special-header{
+    margin-top: 25px;
 }
 
 .memory-output{

@@ -84,11 +84,6 @@ body {
   width: 100vw;
 }
 
-.memory form {
-  width: 70%;
-  margin: 10px auto;
-}
-
 .holes {
   position: absolute;
   width: 100vw;
@@ -96,11 +91,6 @@ body {
   left: 100vw;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-}
-
-.holes form {
-  width: 70%;
-  margin: 0 auto;
 }
 
 .processes_num {
@@ -112,11 +102,6 @@ body {
   transition: 0.3s ease-in-out;
 }
 
-.processes_num form {
-  width: 70%;
-  margin: 0 auto;
-}
-
 .processes {
   position: absolute;
   width: 100vw;
@@ -126,11 +111,6 @@ body {
   transition: 0.3s;
 }
 
-.processes form {
-  width: 70%;
-  margin: 0 auto;
-}
-
 .select_algo {
   position: absolute;
   width: 100vw;
@@ -138,11 +118,6 @@ body {
   left: 100vw;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-}
-
-.select_algo form {
-  width: 70%;
-  margin: 0 auto;
 }
 
 .result {
@@ -163,16 +138,19 @@ body {
           align-items: center;
 }
 
-.result form {
-  width: 70%;
-  margin: 0 auto;
-}
-
 .segments_info {
   display: none;
 }
 
-.header, .subheader {
+.header {
+  width: 100%;
+  text-align: center;
+  position: static;
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 15px;
+}
+
+.subheader {
   width: 100%;
   text-align: center;
   position: static;
@@ -194,18 +172,64 @@ input::-webkit-inner-spin-button {
 button {
   display: block;
   width: 95px;
-  height: 25px;
+  height: 30px;
   margin: 10px auto;
-  background-color: #6209e8;
+  background-color: #6209e896;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   color: white;
-  border-radius: 10px;
+  border-radius: 25px;
   border: none;
   cursor: pointer;
+  position: absolute;
+  right: 22px;
+  bottom: 0px;
 }
 
 button:disabled {
   cursor: default;
-  color: #ccc;
+  color: black;
+}
+
+button:enabled {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #6209e8;
+  padding: 0 5px;
+}
+
+form {
+  position: relative;
+  max-width: 70vw;
+  margin: 10px auto;
+  border: 1px solid black;
+  border-radius: 35px;
+  margin-top: 35px;
+  padding: 25px 0;
+}
+
+select {
+  display: block;
+  width: 165px;
+  height: 45px;
+  margin: 5px auto;
+  padding: 0 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  outline: none;
+}
+
+select:hover {
+  font-weight: bold;
+  background-color: #6209e8;
+  color: white;
+  padding: 0 10px;
+}
+
+.special-header {
+  margin-top: 25px;
 }
 
 .memory-output {
