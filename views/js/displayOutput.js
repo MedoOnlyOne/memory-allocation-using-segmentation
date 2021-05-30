@@ -11,9 +11,10 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
     const algorithm = parseInt(document.querySelector('#algorithm').value);
     if (algorithm === 1){
         memory = firstFit(processes, holes);
-    } 
-    else if (algorithm === 2){
+    } else if (algorithm === 2){
         memory = bestFit(processes, holes);
+    } else if (algorithm === 3){
+        memory = worstFit(processes, holes);
     }
     console.log("Holes after");
     console.log(holes);
