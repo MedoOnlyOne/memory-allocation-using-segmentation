@@ -15,6 +15,9 @@ drawMemory = blocks => {
         memoryElement.appendChild(deallocate);
     }
     for ( let i = 0; i < blocks.length; i++ ){
+        if (blocks[i].size == 0){
+            continue;
+        }
         const blockElement = document.createElement('div');
         blockElement.classList.add('memory-block');
         if (blocks[i].type === "process"){

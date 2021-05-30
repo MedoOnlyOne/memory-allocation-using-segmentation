@@ -1,24 +1,25 @@
 let blocks = [];
 let donnotFit = [];
 const calculateMemoryBlocks = (processes, holes, memorySize) => {
+    console.log("Holes before");
+    console.log(holes);
+    console.log("Processes before");
+    console.log(processes);
+    
+    let memory;
     // get the selected algorithm
     const algorithm = parseInt(document.querySelector('#algorithm').value);
     if (algorithm === 1){
-        firstFit(processes, holes);
+        memory = firstFit(processes, holes);
     } 
     else if (algorithm === 2){
-        bestFit(processes, holes);
+        memory = bestFit(processes, holes);
     }
+    console.log("Holes after");
+    console.log(holes);
+    console.log("Processes after");
     console.log(processes);
-    // const blocks = [];
-    let memory = [...holes];
-    for(let process of processes){
-        memory = memory.concat(process.segments);
-    }
-    memory.sort( (a, b) => {
-        const x = a.base; const y = b.base;
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    });
+    
     console.log("Memory");
     console.log(memory);
     for (let i = 0; i < memory.length; i++){
@@ -93,6 +94,7 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
         const x = a.base; const y = b.base;
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
+    console.log('Blocks');
     console.log(blocks);    
     return blocks;
 };
