@@ -212,6 +212,8 @@ button:disabled {
   -ms-flex-preferred-size: 65%;
       flex-basis: 65%;
   margin: 0 auto;
+  max-width: 480px;
+  padding: 0 20px;
 }
 
 .memory-output h1 {
@@ -237,14 +239,18 @@ button:disabled {
 
 .memory-size-top {
   position: absolute;
-  top: -5px;
-  left: -30px;
+  top: 0;
+  left: -50px;
+  -webkit-transform: translateY(calc(50%));
+          transform: translateY(calc(50%));
 }
 
 .memory-size-bottom {
   position: absolute;
-  bottom: -10px;
+  bottom: 0;
   left: -50px;
+  -webkit-transform: translateY(calc(50%));
+          transform: translateY(calc(50%));
 }
 
 .process {
@@ -262,9 +268,11 @@ button:disabled {
 .memory-warning {
   -ms-flex-preferred-size: 40%;
       flex-basis: 40%;
+  max-width: 375px;
   padding: 1em;
   background-color: #edff008c;
   border-radius: 20px;
+  margin: 0 auto;
 }
 
 .warning-p {
