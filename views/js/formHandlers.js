@@ -11,6 +11,10 @@ const memoryFormHandler = e => {
     
     add_holes.style = "transform: translateX(-100vw) ;";
     memory.style = "transform: translateX(-100vw) ;";
+
+    const back = document.querySelector('#back-button');
+    back.classList.remove('back-button-disabled');
+    back.classList.add('back-button');
     position++;
 };
 
@@ -36,7 +40,7 @@ const holeFormHandler = e => {
     // show processes number form
     if (holes_cnt === holesNumber){
         holes_cnt = 0;
-        document.querySelector('#hole_num').textContent = holes_cnt + 1;
+        document.querySelector('#hole_num').textContent = holes_cnt;
         memory = [...holes];
         document.querySelector('#holes_submit').disabled = true;
         
@@ -48,7 +52,7 @@ const holeFormHandler = e => {
         position++;
 
     } else {
-        document.querySelector('#hole_num').textContent = holes_cnt + 1;
+        document.querySelector('#hole_num').textContent = holes_cnt;
     }
 };
 
@@ -75,7 +79,7 @@ const segmentsNumberHandler = ()=>{
     processes.push(process);
     document.querySelector('#segments_number').disabled = true;
     document.querySelector('#segments_number_submit').disabled = true;
-    document.querySelector('#segmenet_cnt').textContent = segments_cnt + 1;
+    document.querySelector('#segmenet_cnt').textContent = segments_cnt;
     document.querySelector('.segments_info').style = "display: block";
 };
 
@@ -103,11 +107,11 @@ const segmentFormHandler = e => {
         memory.push(processes[processes_cnt]);
         processes_cnt++;
         segments_cnt = 0;
-        document.querySelector('#segmenet_cnt').textContent = segments_cnt + 1;
+        document.querySelector('#segmenet_cnt').textContent = segments_cnt;
         document.querySelector('#segments_number').disabled = false;
         if (processes_cnt === processNumber){
             processes_cnt = 0;
-            document.querySelector('#process_cnt').textContent = processes_cnt + 1;
+            document.querySelector('#process_cnt').textContent = processes_cnt;
             const processesArea = document.querySelector('.processes');
             const select = document.querySelector('.select_algo');
 
@@ -119,11 +123,11 @@ const segmentFormHandler = e => {
         else {
             document.querySelector('.segments_info').style = "display:none";
             document.querySelector('#segments_number').value='';
-            document.querySelector('#process_cnt').textContent = processes_cnt + 1;
+            document.querySelector('#process_cnt').textContent = processes_cnt;
         }
     }
     else {
-        document.querySelector('#segmenet_cnt').textContent = segments_cnt + 1;
+        document.querySelector('#segmenet_cnt').textContent = segments_cnt;
     }
 };
 

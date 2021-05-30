@@ -1,5 +1,5 @@
 <%- include partials/header.ejs %> 
-    <div class="back-button">
+    <div class="back-button-disabled" id="back-button">
         
     </div>
     <div class="forms">
@@ -13,7 +13,7 @@
         </div>
         <div class="holes">
             <h1 class="holes header">Add holes</h1>
-            <h2 class="holes subheader"id="holes">Hole <span id="hole_num">1</span></h2>
+            <h2 class="holes subheader"id="holes">Hole <span id="hole_num">0</span></h2>
             <form class="holes__form" id="add_holes">
                 <input type="number" id="hole_base" placeholder="The hole base" autofocus>
                 <input type="number" id="hole_size" placeholder="The hole size">
@@ -29,14 +29,14 @@
         </div> <!-- el 7ob kolo -->
         <div class="processes">
             <form class="processes__form" id="processes">
-                <h1 class="processes header">Process <span id="process_cnt">1</span></h1>
+                <h1 class="processes header">Process <span id="process_cnt">0</span></h1>
                 <div class="segments_number">
                     <h2 class="processes header">Segments Number</h2>
                     <input type="number" id="segments_number" placeholder="Segments number" autofocus>
                     <button type="button" id="segments_number_submit" disabled>Next</button>
                 </div>
                 <div class="segments_info">
-                    <h1 class="processes header">Segment <span id="segmenet_cnt">1</span></h1>
+                    <h1 class="processes header">Segment <span id="segmenet_cnt">0</span></h1>
                     <input type="text" id="segment_name" placeholder="Segments name" autofocus>
                     <input type="number" id="segment_size" placeholder="Segment size">
                     <button type="submit" id="segment_submit" disabled>Next</button>

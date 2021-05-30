@@ -13,6 +13,21 @@ body{
 }
 
 /* add holes */
+.back-button-disabled{
+    background-color: #ccc; 
+    cursor: default;
+    position: fixed;
+    background-image: url('../icons/icons8-back-24.png');
+    top: 4vh;
+    left: 2vw;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: 44% 50%;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+
+}
 .back-button{
     position: fixed;
     background-image: url('../icons/icons8-back-24.png');
@@ -25,6 +40,7 @@ body{
     background-position: 44% 50%;
     border: 1px solid rgba(0, 0, 0, 0.6);
     cursor: pointer;
+    background-color: #fff;
     &:hover{
         background-color:rgba(0, 0, 0, 0.4);
     }

@@ -1,4 +1,4 @@
-const blocks = [];
+let blocks = [];
 let donnotFit = [];
 const calculateMemoryBlocks = (processes, holes, memorySize) => {
     // get the selected algorithm
