@@ -1,11 +1,18 @@
 const electron = require("electron");
 const { ipcRenderer } = electron;
-
+const anime = require('animejs');
 let memory, processNumber, holesNumber, memorySize, segmentsNumber;
 let holes = []; // array of objects each object has a base and size
 let processes = []; // array of objects each object has a sgmentsNumber, sgmentsNumber arrays of objects contains segmentName, segmentSize
 let position = 0;
-
+anime({
+    targets: 'button',
+    duration: 3000,
+    backgroundColor: ['#388f3f','#1d7a66'],
+    easing: 'easeInOutQuad',
+    direction: 'alternate',
+    loop: true,
+});
 // get the memory size and holes number
 const mainForm = document.querySelector('#main_form');
 mainForm.addEventListener('submit', memoryFormHandler);

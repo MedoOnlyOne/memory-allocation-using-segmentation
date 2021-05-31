@@ -1,15 +1,19 @@
 /* global rules */
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;    
     font-family: 'Ubuntu', sans-serif;
+    color: white;
 }
 
 @import 'fonts';
+@import 'colors';
 
 body{
     overflow: hidden;
+    background-color: #01110c;
 }
 
 /* add holes */
@@ -17,7 +21,7 @@ body{
     background-color: #ccc; 
     cursor: default;
     position: fixed;
-    background-image: url('../icons/icons8-back-24.png');
+    background-image: url('../icons/back-button.svg');
     top: 4vh;
     left: 2vw;
     width: 40px;
@@ -25,12 +29,11 @@ body{
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: 44% 50%;
-    border: 1px solid rgba(0, 0, 0, 0.6);
 
 }
 .back-button{
     position: fixed;
-    background-image: url('../icons/icons8-back-24.png');
+    background-image: url('../icons/back-button.svg');
     top: 4vh;
     left: 2vw;
     width: 40px;
@@ -38,11 +41,11 @@ body{
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: 44% 50%;
-    border: 1px solid rgba(0, 0, 0, 0.6);
     cursor: pointer;
     background-color: #fff;
+    font-weight: bold;
     &:hover{
-        background-color:rgba(0, 0, 0, 0.4);
+        background-color:rgba(150, 150, 150, 0.9);
     }
 }
 
@@ -124,7 +127,10 @@ body{
 input{
     display: block;
     margin: 10px auto;
-    padding: 0.5em;
+    padding: 0.5em 1.2em;
+    border-radius: 20px;
+    outline: none;
+    color: black;
 }
 
 input::-webkit-outer-spin-button,
@@ -138,24 +144,17 @@ button{
     width: 95px;
     height: 30px;
     margin: 10px auto;
-    background-color: #6209e896;
+    // background-color: #6209e896;
+    // background-color:$accent-color;
     transition: 0.3s ease-in-out;
     color: white;
     border-radius: 25px;
     border: none ;
     cursor: pointer;
-    position: absolute;
-    right: 22px;
-    bottom: 0px;
     &:disabled{
         cursor: default;
         color: black;
-    }
-    &:enabled{
-        cursor: pointer;
-        font-weight: bold;
-        background-color: #6209e8;
-        padding: 0 5px;
+        
     }
 }
 
@@ -163,8 +162,6 @@ form {
     position: relative;
     max-width: 70vw;
     margin: 10px auto;
-    border: 1px solid black;
-    border-radius: 35px;
     margin-top: 35px;
     padding: 25px 0;
 }
@@ -172,20 +169,19 @@ form {
 select {
     display: block;
     width: 165px;
-    height: 45px;
-    margin: 5px auto;
+    height: 30px;
+    margin: auto;
+    margin-top: -30px;
+    margin-bottom: 1.6em;
     padding: 0 5px;
-    border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
     outline: none;
+    background-color: #388f3f;
 }
 
 select:hover{
-    font-weight: bold;
-    background-color: #6209e8;
-    color: white;
-    padding: 0 10px;
+    background-color: #1d7a66;
 }
 
 .special-header{
@@ -243,14 +239,14 @@ select:hover{
 }
 
 .old-process{
-    background-color: #eee;
+    background-color: #555;
 }
 
 .memory-warning{
     flex-basis: 40%;
     max-width: 375px;
     padding: 1em;
-    background-color: #edff008c;
+    background-color: #edff005e;
     border-radius: 20px;
     margin: 0 auto;
     order: 2;

@@ -36,10 +36,23 @@ const backButtonEventHandler = () => {
                 document.querySelector('#hole_size').value = '';
                 document.querySelector('#holes_submit').disabled = true;
             } else if (position === 2){
+            segments_cnt = 0;
             processes_cnt = 0;
+            processes = [];
+
             document.querySelector('#process_cnt').textContent = processes_cnt;
             document.querySelector('#processes_number').value = '';
             document.querySelector('#processes_num_submit').disabled = true;
+            
+            document.querySelector('#process_cnt').textContent = processes_cnt;
+            document.querySelector('#segmenet_cnt').textContent = segments_cnt;
+            document.querySelector('#segments_number').disabled = false;
+            document.querySelector('#segments_number').value = '';
+            document.querySelector('#segments_number_submit').disabled = true;
+            document.querySelector('.segments_info').style = "display: none";
+            document.querySelector('#segment_name').value = '';
+            document.querySelector('#segment_size').value = '';
+            document.querySelector('#segment_submit').disabled = true;
         } else if (position === 3){
             segments_cnt = 0;
             processes_cnt = 0;
