@@ -10,6 +10,11 @@ const backButtonEventHandler = () => {
             const back = document.querySelector('#back-button');
             back.classList.add('back-button-disabled');
             back.classList.remove('back-button');
+
+            const home = document.querySelector('#home-button');
+            home.classList.add('home-button-disabled');
+            home.classList.remove('home-button');
+
             for (let i=0; i<forms.length;i++)
                 forms[i].style='';
 

@@ -16,7 +16,6 @@ body{
     background-color: #01110c;
 }
 
-/* add holes */
 .back-button-disabled{
     background-color: #ccc; 
     cursor: default;
@@ -45,7 +44,38 @@ body{
     background-color: #fff;
     font-weight: bold;
     &:hover{
-        background-color:rgba(150, 150, 150, 0.9);
+        background-color:rgba(150, 150, 150);
+    }
+}
+
+.home-button-disabled{
+    opacity: 0.5; 
+    cursor: default;
+    position: fixed;
+    background-image: url('../icons/home.png');
+    top: 4vh;
+    right: 2vw;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.home-button{
+    position: fixed;
+    background-image: url('../icons/home.png');
+    top: 4vh;
+    right: 2vw;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    font-weight: bold;
+    &:hover{
+        opacity: 0.5;
     }
 }
 

@@ -16,6 +16,10 @@ const memoryFormHandler = e => {
     back.classList.remove('back-button-disabled');
     back.classList.add('back-button');
     position++;
+
+    const home = document.querySelector('#home-button');
+    home.classList.remove('home-button-disabled');
+    home.classList.add('home-button');
 };
 
 const holeFormHandler = e => {
