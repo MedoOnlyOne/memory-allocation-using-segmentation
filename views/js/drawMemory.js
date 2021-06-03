@@ -72,7 +72,7 @@ drawMemory = blocks => {
 
             const warning = document.createElement('p');
             warning.classList.add('warning-p');
-            warning.textContent = `Can't allocate ${warningProcess}, segment: ${warningName}, of size: ${warningSize}`;
+            warning.textContent = `Can't allocate ${warningProcess}, because segment: ${warningName} didn't fit at any hole`;
             memoryWarning.appendChild(warning);
         }
         document.querySelector('.result').appendChild(memoryWarning);

@@ -109,15 +109,7 @@ body{
     display: none;
 }
 
-.header{
-    width: 100%;
-    text-align: center;
-    position: static;
-    font-family: 'Ubuntu', sans-serif;
-    margin-top: 15px;
-}
-
-.subheader{
+.header, .subheader{
     width: 100%;
     text-align: center;
     position: static;
@@ -162,7 +154,6 @@ form {
     position: relative;
     max-width: 70vw;
     margin: 10px auto;
-    margin-top: 35px;
     padding: 25px 0;
 }
 

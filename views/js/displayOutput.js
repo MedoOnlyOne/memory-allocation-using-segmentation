@@ -23,13 +23,62 @@ const calculateMemoryBlocks = (processes, holes, memorySize) => {
     
     console.log("Memory");
     console.log(memory);
+    // for (let i = 0; i < memory.length; i++){
+    //     if (memory[i].base === undefined){
+    //         donnotFit.push(memory[i]);
+    //         memory.splice(i, 1);
+    //         i--;
+    //     }
+    // }
+
+    // remove don't fit process
     for (let i = 0; i < memory.length; i++){
-        if (memory[i].base === undefined){
+        if (memory[i]['base'] === undefined){
             donnotFit.push(memory[i]);
             memory.splice(i, 1);
             i--;
+            let p = donnotFit[donnotFit.length - 1]['process'];
+            for (let j = 0; j < memory.length; j++){
+                if (p == memory[j]['process']){
+                    if (memory[j]['base'] === undefined){
+                        memory.splice(j, 1);
+                        j--;
+                    } else {
+                        for (let k = 0; k < holes.length; k++){
+                            if (memory[j]['base'] >= holes[k]['base'] && memory[j]['base'] + memory[j]['size'] <= holes[k]['base'] + holes[k]['size']){
+                                memory[j]['isHole'] = true;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
+
+    // get coorect hole name
+    for(let i = 0; i < memory.length; i++){
+        if(memory[i]['isHole']){
+            for(let j = 0; j < holes.length; j++){
+                if(memory[i]['base'] >= holes[j]['base'] && memory[i]['base'] + memory[i]['size'] <= holes[j]['base'] + holes[j]['size']){
+                    memory[i]['name'] = `Hole${j}`;
+                }
+            }
+        }
+    }
+
+    // Combine holes with the same name
+    for (let i = 0; i < memory.length; i++){
+        for (let j = i + 1; j < memory.length; j++){
+            if (memory[j]['isHole'] && memory[i]['name'] === memory[j]['name']){
+                memory[i].size += memory[j].size;
+                memory.splice(j, 1);
+                j--;
+            } else {
+                break;
+            }
+        }
+    }
+
     let holeCount = 0;
     for(let i = 0; i < memory.length ; i++ ){
         if (i==0){

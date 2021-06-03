@@ -16,6 +16,13 @@ const backButtonEventHandler = () => {
             document.querySelector('#memory_size').value = '';
             document.querySelector('#holes_number').value = '';
             document.querySelector('#memory_submit').disabled = true;
+
+            holes_cnt = 0;
+            holes = [];
+            document.querySelector('#hole_num').textContent = holes_cnt;
+            document.querySelector('#hole_base').value = '';
+            document.querySelector('#hole_size').value = '';
+            document.querySelector('#holes_submit').disabled = true;
         }    
     } else {
         forms[0].style='transform: translateX(-100vw);'   
@@ -35,6 +42,11 @@ const backButtonEventHandler = () => {
                 document.querySelector('#hole_base').value = '';
                 document.querySelector('#hole_size').value = '';
                 document.querySelector('#holes_submit').disabled = true;
+
+                processes_cnt = 0;
+                processes = [];
+                document.querySelector('#processes_number').value = '';
+                document.querySelector('#processes_num_submit').disabled = true;
             } else if (position === 2){
             segments_cnt = 0;
             processes_cnt = 0;
@@ -72,39 +84,6 @@ const backButtonEventHandler = () => {
             document.querySelector('.result').innerHTML = '';
         }
     }
-
-
-
-    // if (position <= 1){
-    //     holes = [];
-    // }
-    // if (position <= 3){
-    //     processes=[];
-    // }
-    // document.querySelector('#segments_number').disabled = false;
-    // document.querySelector('#segments_number_submit').disabled = false;
-    // document.querySelector('.segments_info').style = "display: none";
-    // document.querySelector('#process_cnt').textContent = processes_cnt + 1;
-    // if (position === -1)
-    //     position = 0;
-    // if (position===0){
-    //     const back = document.querySelector('#back-button');
-    //     back.classList.add('back-button-disabled');
-    //     back.classList.remove('back-button');
-    //     for (let i=0; i<forms.length;i++)
-    //         forms[i].style='';
-    // }
-    // else{
-    //     forms[0].style='transform: translateX(-100vw);'   
-    //     for (let i=1; i<=position;i++){
-    //         if (i===position)    
-    //             forms[i].style='transform: translateX(-100vw);';
-    //         else
-    //             forms[i].style='transform: translateX(-200vw);';
-    //     }
-    //     for(let i = position + 1; i<forms.length; i++) 
-    //         forms[i].style='';
-    // }
 }
 
 document.querySelector('#back-button').addEventListener('click', backButtonEventHandler);
