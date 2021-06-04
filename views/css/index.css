@@ -31,7 +31,7 @@
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #01110c;
 }
 
@@ -65,11 +65,11 @@ body {
 }
 
 .back-button:hover {
-  background-color: rgba(150, 150, 150, 0.9);
+  background-color: #969696;
 }
 
 .home-button-disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: default;
   position: fixed;
   background-image: url("../icons/home.png");
@@ -97,7 +97,7 @@ body {
 }
 
 .home-button:hover {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .forms {
@@ -119,7 +119,7 @@ body {
 .holes {
   position: absolute;
   width: 100vw;
-  top: 10px;
+  top: 0px;
   left: 100vw;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -128,7 +128,7 @@ body {
 .processes_num {
   position: absolute;
   width: 100vw;
-  top: 10px;
+  top: 0px;
   left: 100vw;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -137,7 +137,7 @@ body {
 .processes {
   position: absolute;
   width: 100vw;
-  top: 10px;
+  top: 0;
   left: 100vw;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -146,7 +146,7 @@ body {
 .select_algo {
   position: absolute;
   width: 100vw;
-  top: 10px;
+  top: 0;
   left: 100vw;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -155,7 +155,7 @@ body {
 .result {
   position: absolute;
   width: 100vw;
-  top: 10px;
+  top: 0;
   left: 100vw;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -188,6 +188,7 @@ input {
   border-radius: 20px;
   outline: none;
   color: black;
+  border: none;
 }
 
 input::-webkit-outer-spin-button,
@@ -218,15 +219,15 @@ form {
   position: relative;
   max-width: 70vw;
   margin: 10px auto;
-  padding: 25px 0;
+  margin-top: 0;
+  padding: 20px 0;
 }
 
 select {
   display: block;
   width: 165px;
-  height: 30px;
+  height: 23px;
   margin: auto;
-  margin-top: -30px;
   margin-bottom: 1.6em;
   padding: 0 5px;
   cursor: pointer;
