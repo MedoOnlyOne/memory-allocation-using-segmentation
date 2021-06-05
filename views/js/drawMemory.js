@@ -2,10 +2,6 @@ drawMemory = blocks => {
     const memoryElement = document.createElement('div');
     memoryElement.classList.add('memory-output');
     const blockElements = [];
-    // let totalSize = 0;
-    // for ( block of blocks ){
-    //     totalSize += block.size;
-    // }
     let totalSize = parseInt(document.querySelector('#memory_size').value);
     if (blocks.length > 0){
         const deallocate = document.createElement('h1');
@@ -27,12 +23,7 @@ drawMemory = blocks => {
         } else {
             blockElement.classList.add('old-process');
         }
-        if (totalSize <= 500){
-            blockElement.style = `height: ${blocks[i].size}px;`
-        }
-        else{
-            blockElement.style = `height: ${blocks[i].size*500/totalSize}px;`
-        }
+        blockElement.style = `height: ${blocks[i].size*70/totalSize}vh;` //70% of height
         const blockContent = document.createElement('h2');
         blockContent.textContent = blocks[i].name;
         blockContent.classList.add('block-content');
